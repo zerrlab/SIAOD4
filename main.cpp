@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <Windows.h>
+
 using namespace std;
 
 struct NodeTree {
