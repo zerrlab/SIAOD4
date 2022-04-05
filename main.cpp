@@ -165,6 +165,8 @@ void PrintTree(Tree &t) {
     DirectTravel(t.Top);
 }
 
+
+
 void ReverseTravel(NodeTree *node) {
     if (node == nullptr) {
         return;
@@ -190,12 +192,23 @@ double SummTree(NodeTree *node) {
     return node->key + SummTree(node->Left) + SummTree(node->Right);
 }
 
-void DeleteTree(Tree &t) {
-    //!!! void DeleteTree(узел) + рекурсия
-    while (!IsTreeEmpty(t)) {
-        DeleteNode(t, t.Top->key);
+//void DeleteTree(Tree &t) {
+//    //!!! void DeleteTree(узел) + рекурсия
+//    while (!IsTreeEmpty(t)) {
+//        DeleteNode(t, t.Top->key);
+//    }
+//}
+void DeleteTree(NodeTree *node) {
+    if (node!= nullptr) {
+        DeleteTree(node->Left);
+        DeleteTree(node->Right);
+        free(node->key);
+        free(node);
     }
 }
+
+
+
 
 int main() {
     setlocale(LC_ALL, "Rus");
@@ -244,5 +257,7 @@ int main() {
     PrintTree(tr);
     cout << endl;
     cout << "Дерево среднее : " << SummTree(tr.Top) / quant << endl;
-    DeleteTree(tr);
+    DeleteTree(tr.Top);
+    cout << endl;
+    PrintTree(tr);
 }
