@@ -162,7 +162,7 @@ void DirectTravel(NodeTree *node) {
 
 
 void PrintTree(Tree &t) {
-    //Âûâîä â âèäå äåðåâà
+    //Вывод в виде дерева
     DirectTravel(t.Top);
 }
 
@@ -192,7 +192,7 @@ double SummTree(NodeTree *node) {
 }
 
 //void DeleteTree(Tree &t) {
-//    //!!! void DeleteTree(óçåë) + ðåêóðñèÿ
+//    //!!! void DeleteTree(узел) + рекурсия
 //    while (!IsTreeEmpty(t)) {
 //        DeleteNode(t, t.Top->key);
 //    }
@@ -207,6 +207,8 @@ void DeleteTree(NodeTree *node) {
 }
 
 
+
+
 int main() {
     setlocale(LC_ALL, "Rus");
     SetConsoleCP(1251);
@@ -217,8 +219,8 @@ int main() {
     int quant = 0;
     int select = 0;
     while ((select < 1) || (select > 3)) {
-        cout << "1 - Ôàéë" << endl << "2 - Ââåñòè âðó÷íóþ" << endl << "3 - Çàïîëíèòü ñëó÷àéíûìè ÷èñëàìè" << endl
-             << "Âûáåðèòå=";
+        cout << "1 - Файл" << endl << "2 - Ввести вручную" << endl << "3 - Заполнить случайными числами" << endl
+             << "Выберите=";
         cin >> select;
         cout << endl;
     }
@@ -231,9 +233,9 @@ int main() {
         FileIn.close();
     }
     if (select == 2) {
-        cout << "Ââåäèòå êîë-âî" << endl;
+        cout << "Введите кол-во" << endl;
         cin >> quant;
-        cout << "Çíà÷åíèå" << endl;
+        cout << "Значение" << endl;
         for (int count = 1; count <= quant; count++) {
             cin >> num;
             AddNode(tr, num);
@@ -242,7 +244,7 @@ int main() {
     }
     if (select == 3) {
         while ((quant < 1)) {
-            cout << "Ââåäèòå êîë-âî" << endl;
+            cout << "Введите кол-во" << endl;
             cin >> quant;
             srand(time(nullptr));
             for (int count = 1; count <= quant; count++) {
@@ -250,10 +252,10 @@ int main() {
             }
         }
     }
-    cout << "Äåðåâî : ";
+    cout << "Дерево : ";
     PrintTree(tr);
     cout << endl;
-    cout << "Äåðåâî ñðåäíåå : " << SummTree(tr.Top) / quant << endl;
+    cout << "Дерево среднее : " << SummTree(tr.Top) / quant << endl;
     DeleteTree(tr.Top);
     cout << endl;
     PrintTree(tr);
