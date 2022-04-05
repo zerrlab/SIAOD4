@@ -165,8 +165,6 @@ void PrintTree(Tree &t) {
     DirectTravel(t.Top);
 }
 
-
-
 void ReverseTravel(NodeTree *node) {
     if (node == nullptr) {
         return;
