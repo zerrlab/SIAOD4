@@ -162,7 +162,7 @@ void DirectTravel(NodeTree *node) {
 
 
 void PrintTree(Tree &t) {
-    //Âûâîä â âèäå äåðåâà
+    //Ã‚Ã»Ã¢Ã®Ã¤ Ã¢ Ã¢Ã¨Ã¤Ã¥ Ã¤Ã¥Ã°Ã¥Ã¢Ã 
     DirectTravel(t.Top);
 }
 
@@ -192,7 +192,7 @@ double SummTree(NodeTree *node) {
 }
 
 //void DeleteTree(Tree &t) {
-//    //!!! void DeleteTree(óçåë) + ðåêóðñèÿ
+//    //!!! void DeleteTree(Ã³Ã§Ã¥Ã«) + Ã°Ã¥ÃªÃ³Ã°Ã±Ã¨Ã¿
 //    while (!IsTreeEmpty(t)) {
 //        DeleteNode(t, t.Top->key);
 //    }
@@ -207,8 +207,6 @@ void DeleteTree(NodeTree *node) {
 }
 
 
-
-
 int main() {
     setlocale(LC_ALL, "Rus");
     SetConsoleCP(1251);
@@ -219,8 +217,8 @@ int main() {
     int quant = 0;
     int select = 0;
     while ((select < 1) || (select > 3)) {
-        cout << "1 - Ôàéë" << endl << "2 - Ââåñòè âðó÷íóþ" << endl << "3 - Çàïîëíèòü ñëó÷àéíûìè ÷èñëàìè" << endl
-             << "Âûáåðèòå=";
+        cout << "1 - Ã”Ã Ã©Ã«" << endl << "2 - Ã‚Ã¢Ã¥Ã±Ã²Ã¨ Ã¢Ã°Ã³Ã·Ã­Ã³Ã¾" << endl << "3 - Ã‡Ã Ã¯Ã®Ã«Ã­Ã¨Ã²Ã¼ Ã±Ã«Ã³Ã·Ã Ã©Ã­Ã»Ã¬Ã¨ Ã·Ã¨Ã±Ã«Ã Ã¬Ã¨" << endl
+             << "Ã‚Ã»Ã¡Ã¥Ã°Ã¨Ã²Ã¥=";
         cin >> select;
         cout << endl;
     }
@@ -233,9 +231,9 @@ int main() {
         FileIn.close();
     }
     if (select == 2) {
-        cout << "Ââåäèòå êîë-âî" << endl;
+        cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ ÃªÃ®Ã«-Ã¢Ã®" << endl;
         cin >> quant;
-        cout << "Çíà÷åíèå" << endl;
+        cout << "Ã‡Ã­Ã Ã·Ã¥Ã­Ã¨Ã¥" << endl;
         for (int count = 1; count <= quant; count++) {
             cin >> num;
             AddNode(tr, num);
@@ -244,7 +242,7 @@ int main() {
     }
     if (select == 3) {
         while ((quant < 1)) {
-            cout << "Ââåäèòå êîë-âî" << endl;
+            cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ ÃªÃ®Ã«-Ã¢Ã®" << endl;
             cin >> quant;
             srand(time(nullptr));
             for (int count = 1; count <= quant; count++) {
@@ -252,10 +250,10 @@ int main() {
             }
         }
     }
-    cout << "Äåðåâî : ";
+    cout << "Ã„Ã¥Ã°Ã¥Ã¢Ã® : ";
     PrintTree(tr);
     cout << endl;
-    cout << "Äåðåâî ñðåäíåå : " << SummTree(tr.Top) / quant << endl;
+    cout << "Ã„Ã¥Ã°Ã¥Ã¢Ã® Ã±Ã°Ã¥Ã¤Ã­Ã¥Ã¥ : " << SummTree(tr.Top) / quant << endl;
     DeleteTree(tr.Top);
     cout << endl;
     PrintTree(tr);
