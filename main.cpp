@@ -160,6 +160,7 @@ void DirectTravel(NodeTree *node) {
     DirectTravel(node->Right);
 }
 
+
 void PrintTree(Tree &t) {
     //Вывод в виде дерева
     DirectTravel(t.Top);
