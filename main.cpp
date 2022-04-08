@@ -151,14 +151,7 @@ bool IsTreeEmpty(Tree &t) {
     return (t.Top == nullptr);
 }
 
-void DirectTravel(NodeTree *node) {
-    if (node == nullptr) {
-        return;
-    }
-    cout << node->key << " ";
-    DirectTravel(node->Left);
-    DirectTravel(node->Right);
-}
+
 
 void print(NodeTree *&node, int h) {
     if (node != nullptr) {
@@ -170,28 +163,49 @@ void print(NodeTree *&node, int h) {
 
     }
 }
+
 void PrintTree(Tree &t) {
     print(t.Top, 1);
 }
 
-void ReverseTravel(NodeTree *node) {
-    if (node == nullptr) {
+void PrintDirect(NodeTree* node,int h)
+{
+    if (node==nullptr)
+    {
         return;
     }
-    ReverseTravel(node->Left);
-    ReverseTravel(node->Right);
-    cout << node->key << " ";
+    for(int i=0; i<h; i++)
+        cout<<" ";
+    cout<<node->key<<endl;
+    PrintDirect(node->Left,h+1);
+    PrintDirect(node->Right,h+1);
 }
 
-void SymmetricTravel(NodeTree *node) {
-    if (node == nullptr) {
+void PrintReverse(NodeTree* node,int h)
+{
+    if (node == nullptr)
+    {
         return;
     }
-    ReverseTravel(node->Left);
-    cout << node->key << " ";
-    ReverseTravel(node->Right);
+    PrintReverse(node->Left,h+1);
+    PrintReverse(node->Right,h+1);
+    for(int i=0; i<h; i++)
+        cout<<" ";
+    cout<<node->key<<endl;
 }
 
+void PrintSymmetric(NodeTree* node,int h)
+{
+    if (node == nullptr)
+    {
+        return;
+    }
+    PrintSymmetric(node->Right,h+1);
+    for(int i=0; i<h; i++)
+        cout<<" ";
+    cout<<node->key<<endl;
+    PrintSymmetric(node->Left,h+1);
+}
 double SummTree(NodeTree *node) {
     if (node == nullptr) {
         return 0;
@@ -261,8 +275,10 @@ int main() {
         }
     }
     cout << "Дерево : ";
-    PrintTree(tr);
+    PrintSymmetric(tr.Top,0);
     cout << endl;
     cout << "Дерево среднее : " << SummTree(tr.Top) / quant << endl;
     DeleteTree(tr.Top);
+//    cout << endl;
+//    PrintTree(tr);
 }
