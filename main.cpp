@@ -229,8 +229,8 @@ int main() {
     int quant = 0;
     int select = 0;
     while ((select < 1) || (select > 3)) {
-        cout << "1 - Ôàéë" << endl << "2 - Ââåñòè âðó÷íóþ" << endl << "3 - Çàïîëíèòü ñëó÷àéíûìè ÷èñëàìè" << endl
-             << "Âûáåðèòå=";
+        cout << "1 - Ð¤Ð°Ð¹Ð»" << endl << "2 - Ð’Ð²ÐµÑÑ‚Ð¸ Ð²Ñ€ÑƒÑ‡Ð½ÑƒÑŽ" << endl << "3 - Ð—Ð°Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÑŒ ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½Ñ‹Ð¼Ð¸ Ñ‡Ð¸ÑÐ»Ð°Ð¼Ð¸" << endl
+             << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ=";
         cin >> select;
         cout << endl;
     }
@@ -243,9 +243,9 @@ int main() {
         FileIn.close();
     }
     if (select == 2) {
-        cout << "Ââåäèòå êîë-âî" << endl;
+        cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»-Ð²Ð¾" << endl;
         cin >> quant;
-        cout << "Çíà÷åíèå" << endl;
+        cout << "Ð—Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ" << endl;
         for (int count = 1; count <= quant; count++) {
             cin >> num;
             AddNode(tr, num);
@@ -254,7 +254,7 @@ int main() {
     }
     if (select == 3) {
         while ((quant < 1)) {
-            cout << "Ââåäèòå êîë-âî" << endl;
+            cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»-Ð²Ð¾" << endl;
             cin >> quant;
             srand(time(nullptr));
             for (int count = 1; count <= quant; count++) {
@@ -262,11 +262,9 @@ int main() {
             }
         }
     }
-    cout << "Äåðåâî : ";
+    cout << "Ð”ÐµÑ€ÐµÐ²Ð¾ : ";
     PrintTree(tr);
     cout << endl;
-    cout << "Äåðåâî ñðåäíåå : " << SummTree(tr.Top) / quant << endl;
+    cout << "Ð”ÐµÑ€ÐµÐ²Ð¾ ÑÑ€ÐµÐ´Ð½ÐµÐµ : " << SummTree(tr.Top) / quant << endl;
     DeleteTree(tr.Top);
-//    cout << endl;
-//    PrintTree(tr);
 }
