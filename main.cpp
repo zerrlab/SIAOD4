@@ -208,7 +208,6 @@ double SummTree(NodeTree *node) {
 //    }
 //}
 
-
 void DeleteTree(NodeTree *node) {
     if (node != nullptr) {
         if (node->Left != nullptr)
