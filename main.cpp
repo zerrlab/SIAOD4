@@ -160,10 +160,18 @@ void DirectTravel(NodeTree *node) {
     DirectTravel(node->Right);
 }
 
+void print(NodeTree *&node, int h) {
+    if (node != nullptr) {
+        print(node->Right, h + 1);
+        for (int i = 0; i < h; i++)
+            cout << "    ";
+        cout << node->key << endl;
+        print(node->Left, h + 1);
 
+    }
+}
 void PrintTree(Tree &t) {
-    //Вывод в виде дерева
-    DirectTravel(t.Top);
+    print(t.Top, 1);
 }
 
 void ReverseTravel(NodeTree *node) {
@@ -192,21 +200,21 @@ double SummTree(NodeTree *node) {
 }
 
 //void DeleteTree(Tree &t) {
-//    //!!! void DeleteTree(узел) + рекурсия
 //    while (!IsTreeEmpty(t)) {
 //        DeleteNode(t, t.Top->key);
 //    }
 //}
+
+
 void DeleteTree(NodeTree *node) {
-    if (node!= nullptr) {
-        DeleteTree(node->Left);
-        DeleteTree(node->Right);
-        free(node->key);
-        free(node);
+    if (node != nullptr) {
+        if (node->Left != nullptr)
+            DeleteTree(node->Left);
+        if (node->Right != nullptr)
+            DeleteTree(node->Right);
+        delete node;
     }
 }
-
-
 
 
 int main() {
@@ -257,6 +265,4 @@ int main() {
     cout << endl;
     cout << "Дерево среднее : " << SummTree(tr.Top) / quant << endl;
     DeleteTree(tr.Top);
-    cout << endl;
-    PrintTree(tr);
 }
